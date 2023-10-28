@@ -1,24 +1,22 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\diarioController;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+
+use App\Http\Controllers\RegistroController;
+
+/* 
+Es una ruta para el metodo inicio 
+
+Ruta, recupera inf, ruta que responde al URL, Cuando un usuario accede a la URL raíz, Laravel llamará al método
+  |     |   |---------|                             |  
+  |     |   |               |-----------------------|
+                            |                           
+                            |                       Establece el nombre de la ruta
+                            |                                |        |                     */
+Route::get('/', [RegistroController::class,'metodoInicio'])->name('apodoInicio');
+
+Route::get('/Registro', [RegistroController::class,'metodoRegistro'])->name('apodoRegistro');
 
 
 
-
-Route::get('/', [diarioController::class, 'metodoInicio'])->name('apodo1');
-Route::get('/Screen1', [diarioController::class, 'metodoScreen1'])->name('apodoScreen1');
-Route::get('/Screen2', [diarioController::class, 'metodoScreen2'])->name('apodoScreen2');
-Route::post('/guardarRecuerdo', [diarioController::class, 'metodoGuardar'])->name('guardar');
-
-
+Route::post('/guardarLibro', [RegistroController::class, 'metodoGuardar'])->name('guardar');

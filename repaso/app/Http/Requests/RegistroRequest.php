@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class validadorFormDiario extends FormRequest
+class RegistroRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,8 +22,12 @@ class validadorFormDiario extends FormRequest
     public function rules(): array
     {
         return [
-            'txtNombre' => 'required|max:25',
-            'txtTelefono' => 'required|min:5',
+            'isbn' => 'required|numeric|min:13',
+            'autor' => 'required|string|max:255|min:4',
+            'titulo' => 'required|string|max:255|min:4',
+            'paginas' => 'required|numeric',
+            'editorial' => 'required|string|max:255|min:4',
+            'email' => 'required|email|max:50|min:10',
         ];
     }
 }
